@@ -5,7 +5,7 @@ plugins {
 	id 'io.spring.dependency-management' version '1.1.0'
 	id 'org.flywaydb.flyway' version('9.5.1')
 	id 'jacoco'
-	id 'org.sonarqube' version('3.3')
+	id 'org.sonarqube' version('4.3.0.3225')
 }
 
 group = 'com.org'
@@ -49,6 +49,7 @@ jacoco {
 
 test {
 	useJUnitPlatform()
+	reports.junitXml.required = false
 	finalizedBy jacocoTestReport
 	jacoco {
 		enabled = true
@@ -58,14 +59,21 @@ test {
 
 jacocoTestReport {
 	dependsOn test
+	reports {
+		xml.required = true
+        // xml.enabled true // Enable XML report
+        // csv.enabled false // Disable CSV report (optional)
+        // html.enabled false // Disable HTML report (optional)
+        // xml.destination file("${buildDir}/reports/jacoco/report.xml") // Set the destination for the XML report
+    }
 }
 
 sonarqube {
 	properties {
 		property 'sonar.projectKey', 'RahulDeeti_checkr'
 		property 'sonar.organization', 'rahuldeeti'
-		property 'sonar.sources', 'src/main/java' // Adjust this path based on your source files location
-		property 'sonar.tests', 'src/test/java'   // Adjust this path based on your test files location
+		property 'sonar.sources', 'src/main/java'
+		property 'sonar.tests', 'src/test/java'
 		property 'sonar.coverage.jacoco.xmlReportPaths', 'build/reports/jacoco/test/jacocoTestReport.xml'
 	}
 }
