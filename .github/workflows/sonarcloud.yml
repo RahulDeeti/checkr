@@ -27,6 +27,11 @@ jobs:
       - name: Generate JaCoCo report
         run: ./gradlew test jacocoTestReport
 
+      - name: SonarQube analysis
+        run: ./gradlew sonarqube -Dsonar.projectKey=RahulDeeti_checkr -Dsonar.organization=rahuldeeti -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+
+
+
 #      - name: Analyze with SonarCloud
 #        uses: SonarSource/sonarcloud-github-action@de2e56b42aa84d0b1c5b622644ac17e505c9a049
 #        env:
