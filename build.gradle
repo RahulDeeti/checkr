@@ -50,18 +50,13 @@ jacoco {
 test {
 	useJUnitPlatform()
 	finalizedBy jacocoTestReport
+	jacoco {
+		enabled = true
+        destinationFile = file('$buildDir/reports/jacoco/test/jacocoTestReport.xml')
+	}
 }
 
 jacocoTestReport {
 	dependsOn test
-//	reports {
-//		xml.enabled(true);
-//	}
 }
 
-sonarqube {
-    properties {
-        property 'sonar.projectKey', 'RahulDeeti_checkr'
-        property 'sonar.organization', 'rahuldeeti'
-    }
-}
