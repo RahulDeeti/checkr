@@ -47,7 +47,7 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: '17'
-          distribution: 'openjdk'
+          distribution: 'zulu'
 
       - name: Checkout code
         uses: actions/checkout@v2
