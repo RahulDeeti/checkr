@@ -23,12 +23,14 @@ jobs:
 
       - name: Checkout code
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0  # Convert to non-shallow clone by fetching the full history
 
       - name: Generate JaCoCo report
         run: ./gradlew test jacocoTestReport
 
       - name: SonarQube analysis
-        run: ./gradlew sonarqube -Dsonar.projectKey=RahulDeeti_checkr -Dsonar.organization=rahuldeeti -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+        run: ./gradlew sonar -Dsonar.projectKey=RahulDeeti_checkr -Dsonar.organization=rahuldeeti -Dsonar.host.url=https://sonarcloud.io -Dsonar.token=${{ secrets.SONAR_TOKEN }}
 
 
 
