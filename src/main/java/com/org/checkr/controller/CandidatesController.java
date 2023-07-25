@@ -28,7 +28,7 @@ public class CandidatesController {
 
     }
     @PostMapping
-    public Candidate createUser(@RequestBody Candidate candidate) {
+    public Candidate createCandidate(@RequestBody Candidate candidate) {
         return candidateService.saveCandidate(candidate);
     }
 }
