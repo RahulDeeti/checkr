@@ -2,6 +2,7 @@ package com.org.checkr.service;
 
 import com.org.checkr.dto.CandidateDTO;
 import com.org.checkr.entity.Candidate;
+import com.org.checkr.entity.Report;
 import com.org.checkr.repository.CandidateRepository;
 
 import jakarta.persistence.EntityManager;
@@ -36,10 +37,15 @@ public class CandidateService {
     }
 
     public Optional<Candidate> getCandidateById(Long id) {
-        System.out.println(candidateRepository.findById(id));
         return candidateRepository.findById(id);
     }
 
+    public Candidate engageWithCandidate(Long id) {
+        Optional<Candidate> candidate = candidateRepository.findById(id);
+        Report report = candidate.get().getReport();
+        report.setAdjudication("Engaged");
+        return saveCandidate(candidate.get());
+    }
     public Candidate saveCandidate(Candidate candidate) {
         return candidateRepository.save(candidate);
     }
@@ -88,5 +94,4 @@ public class CandidateService {
                 ))
                 .collect(Collectors.toList());
     }
-
 }

@@ -31,4 +31,9 @@ public class CandidatesController {
     public Candidate createCandidate(@RequestBody Candidate candidate) {
         return candidateService.saveCandidate(candidate);
     }
+
+    @PatchMapping("/{id}")
+    public Candidate engageWithCandidate(@PathVariable Long id) {
+        return candidateService.engageWithCandidate(id);
+    }
 }

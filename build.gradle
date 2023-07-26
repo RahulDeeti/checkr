@@ -31,6 +31,8 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'com.auth0:auth0:1.45.0' // auth0 integration with spring security
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'org.postgresql:postgresql'
@@ -38,9 +40,9 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.9.1'
 	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.1'
+	testImplementation 'org.springframework.security:spring-security-test'
 	runtimeOnly 'com.h2database:h2'
 	compileOnly 'org.flywaydb:flyway-core'
-
 }
 
 jacoco {
