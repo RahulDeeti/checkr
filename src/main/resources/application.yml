@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: orange
+  jpa:
+    show-sql: true
+
+
+property: stagingValue
