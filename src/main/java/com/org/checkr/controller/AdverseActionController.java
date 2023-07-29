@@ -1,10 +1,13 @@
 package com.org.checkr.controller;
 
-import com.org.checkr.dto.AdverseActionDTO;
+import com.org.checkr.dto.request.AdverseActionRequestDTO;
+import com.org.checkr.dto.response.AdverseActionResponseDTO;
 import com.org.checkr.entity.AdverseAction;
 import com.org.checkr.service.AdverseActionService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,15 +24,15 @@ public class AdverseActionController {
     }
 
     @PostMapping("/{candidate-id}")
-    public AdverseAction createAdverseAction(@RequestBody AdverseActionDTO adverseActionDTO,
-                                             @PathVariable(name = "candidate-id") Long candidateId) {
-        adverseActionDTO.setCandidateId(candidateId);
-        return adverseActionService.saveAdverseAction(adverseActionDTO);
+    public ResponseEntity<AdverseActionResponseDTO> createAdverseAction(@RequestBody AdverseActionRequestDTO adverseActionDTO,
+                                                                        @PathVariable(name = "candidate-id") Long candidateId) {
+        AdverseAction adverseAction =  adverseActionService.saveAdverseAction(adverseActionDTO);
+        return new ResponseEntity<>(adverseActionService.mapAdverseActionToDto(adverseAction), HttpStatus.CREATED);
     }
 
     @GetMapping
-    public List<AdverseActionDTO> getAllAdverseActions() {
-        return  adverseActionService.getAllAdverseActions();
+    public ResponseEntity<List<AdverseActionResponseDTO>> getAllAdverseActions() {
+        return new ResponseEntity<>(adverseActionService.getAllAdverseActions(), HttpStatus.OK);
     }
 }
 

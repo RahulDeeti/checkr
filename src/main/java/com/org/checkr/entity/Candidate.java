@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -24,14 +25,17 @@ public class Candidate {
     @Column(nullable = false)
     private String email;
 
+    @Column(nullable = false)
     @Temporal(TemporalType.DATE)
     private Date dob;
 
+    @Column(nullable = false)
     private String phone;
 
+    @Column(nullable = false)
     private String zipcode;
 
-    @Column(name = "social_security_card")
+    @Column(name = "social_security_card", nullable = false)
     private String socialSecurityCard;
 
     @Column(name = "driving_license")
