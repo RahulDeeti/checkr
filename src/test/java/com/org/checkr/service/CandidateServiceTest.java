@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.TimeUnit;
 
-public class CandidateServiceTest {
+class CandidateServiceTest {
 
     private CandidateService candidateService;
     private CandidateRepository candidateRepository;
@@ -35,7 +35,7 @@ public class CandidateServiceTest {
 
     @Test
     @DisplayName("Get All Candidates - Should Return List of CandidateDTOs")
-    public void testGetAllCandidates_ShouldReturnListOfCandidateDTOs() {
+    void testGetAllCandidates_ShouldReturnListOfCandidateDTOs() {
         Candidate candidate1 = createCandidate(1L);
         Candidate candidate2 = createCandidate(2L);
 
@@ -49,7 +49,7 @@ public class CandidateServiceTest {
 
     @Test
     @DisplayName("Get Candidate By Existing ID - Should Return Candidate")
-    public void testGetCandidateById_ExistingId_ReturnsCandidate() {
+    void testGetCandidateById_ExistingId_ReturnsCandidate() {
         Long candidateId = 1L;
         Candidate candidate = createCandidate(1L);
         when(candidateRepository.findById(candidateId)).thenReturn(Optional.of(candidate));
@@ -62,7 +62,7 @@ public class CandidateServiceTest {
 
     @Test
     @DisplayName("Get Candidate By Non-Existing ID - Should Throw NotFoundException")
-    public void testGetCandidateById_NonExistingId_ThrowsNotFoundException() {
+    void testGetCandidateById_NonExistingId_ThrowsNotFoundException() {
         Long nonExistingId = 2L;
         when(candidateRepository.findById(nonExistingId)).thenReturn(Optional.empty());
 
@@ -71,7 +71,7 @@ public class CandidateServiceTest {
 
     @Test
     @DisplayName("Create Candidate - Should Save and Return New Candidate")
-    public void testCreateCandidate_ShouldSaveAndReturnNewCandidate() {
+    void testCreateCandidate_ShouldSaveAndReturnNewCandidate() {
         CreateCandidateRequestDTO requestDTO = new CreateCandidateRequestDTO(
                 "John Doe",
                 "john.doe@example.com",

@@ -13,21 +13,21 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-public class UserServiceTest {
+class UserServiceTest {
 
     private UserService userService;
     private UserRepository userRepository;
     private PasswordEncoder passwordEncoder;
 
     @BeforeEach
-    public void setUp() {
+    void setUp() {
         userRepository = mock(UserRepository.class);
         passwordEncoder = mock(PasswordEncoder.class);
         userService = new UserService(userRepository, passwordEncoder);
     }
 
     @Test
-    public void testGetUserById_ExistingId_ReturnsUser() {
+    void testGetUserById_ExistingId_ReturnsUser() {
         Long userId = 1L;
         User user = new User("JaneDoe", "jane.doe@example.com", "hashedPassword");
         when(userRepository.findById(userId)).thenReturn(java.util.Optional.of(user));
@@ -36,14 +36,14 @@ public class UserServiceTest {
     }
 
     @Test
-    public void testGetUserById_NonExistingId_ThrowsNotFoundException() {
+    void testGetUserById_NonExistingId_ThrowsNotFoundException() {
         Long userId = 2L;
         when(userRepository.findById(userId)).thenReturn(java.util.Optional.empty());
         assertThrows(NotFoundException.class, () -> userService.getUserById(userId));
     }
 
     @Test
-    public void testSaveUser_ValidUserRequestDTO_ReturnsSavedUser() {
+    void testSaveUser_ValidUserRequestDTO_ReturnsSavedUser() {
         CreateUserRequestDTO requestDTO = new CreateUserRequestDTO("JaneDoe", "jane.doe@example.com", "password123");
         when(passwordEncoder.encode(requestDTO.getPassword())).thenReturn("hashedPassword");
         User savedUser = new User("JaneDoe", "jane.doe@example.com", "hashedPassword");
@@ -54,7 +54,7 @@ public class UserServiceTest {
     }
 
     @Test
-    public void testMapUserToResponseDTO_ValidUser_ReturnsResponseDTO() {
+    void testMapUserToResponseDTO_ValidUser_ReturnsResponseDTO() {
         User user = new User("JaneDoe", "jane.doe@example.com", "hashedPassword");
         CreateUserResponseDTO responseDTO = userService.mapUserToResponseDTO(user);
 

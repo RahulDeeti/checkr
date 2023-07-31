@@ -14,20 +14,20 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 import java.util.Optional;
 
-public class QuestionnaireServiceTest {
+class QuestionnaireServiceTest {
 
     private QuestionnaireService questionnaireService;
     private QuestionnaireRepository questionnaireRepository;
 
     @BeforeEach
-    public void setUp() {
+    void setUp() {
         questionnaireRepository = mock(QuestionnaireRepository.class);
         questionnaireService = new QuestionnaireService(questionnaireRepository);
     }
 
     @Test
     @DisplayName("Find Existing Questionnaire By ID - Should Return Questionnaire")
-    public void testFindQuestionnaireById_ExistingId_ReturnsQuestionnaire() {
+    void testFindQuestionnaireById_ExistingId_ReturnsQuestionnaire() {
         Long questionnaireId = 1L;
         Questionnaire questionnaire = new Questionnaire();
         questionnaire.setId(questionnaireId);
@@ -42,7 +42,7 @@ public class QuestionnaireServiceTest {
 
     @Test
     @DisplayName("Find Non-Existing Questionnaire By ID - Should Throw NotFoundException")
-    public void testFindQuestionnaireById_NonExistingId_ThrowsNotFoundException() {
+    void testFindQuestionnaireById_NonExistingId_ThrowsNotFoundException() {
         Long nonExistingId = 2L;
         when(questionnaireRepository.findById(nonExistingId)).thenReturn(Optional.empty());
 
@@ -51,7 +51,7 @@ public class QuestionnaireServiceTest {
 
     @Test
     @DisplayName("Map Questionnaire to DTO - Should Return DTO with Correct Fields")
-    public void testMapQuestionnaireToDto_ReturnsCorrectDto() {
+    void testMapQuestionnaireToDto_ReturnsCorrectDto() {
         Questionnaire questionnaire = new Questionnaire();
         questionnaire.setId(1L);
         questionnaire.setQuestion("What is your favorite color?");
@@ -65,7 +65,7 @@ public class QuestionnaireServiceTest {
 
     @Test
     @DisplayName("Get All Questionnaires - Should Return List of Questionnaires")
-    public void testGetAllQuestionnaires_ShouldReturnListOfQuestionnaires() {
+    void testGetAllQuestionnaires_ShouldReturnListOfQuestionnaires() {
         Questionnaire questionnaire1 = new Questionnaire();
         questionnaire1.setId(1L);
         questionnaire1.setQuestion("What is the reason for this?");

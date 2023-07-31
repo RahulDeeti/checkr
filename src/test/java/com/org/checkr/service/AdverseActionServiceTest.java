@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class AdverseActionServiceTest {
+class AdverseActionServiceTest {
 
     private AdverseActionService adverseActionService;
     private AdverseActionRepository adverseActionRepository;
@@ -27,7 +27,7 @@ public class AdverseActionServiceTest {
     private QuestionnaireService questionnaireService;
 
     @BeforeEach
-    public void setUp() {
+    void setUp() {
         adverseActionRepository = mock(AdverseActionRepository.class);
         candidateService = mock(CandidateService.class);
         userService = mock(UserService.class);
@@ -42,7 +42,7 @@ public class AdverseActionServiceTest {
 
     @Test
     @DisplayName("Save Adverse Action - Should Return Saved AdverseAction")
-    public void testSaveAdverseAction_ReturnsSavedAdverseAction() {
+    void testSaveAdverseAction_ReturnsSavedAdverseAction() {
         Long userId = 1L;
         Long candidateId = 2L;
         Long questionnaireId = 1L;
@@ -89,7 +89,7 @@ public class AdverseActionServiceTest {
 
     @Test
     @DisplayName("Get All Adverse Actions - Should Return List of Adverse Actions")
-    public void testGetAllAdverseActions_ShouldReturnListOfAdverseActions() {
+    void testGetAllAdverseActions_ShouldReturnListOfAdverseActions() {
 
         List<AdverseAction> adverseActions = new ArrayList<>();
 
@@ -131,7 +131,7 @@ public class AdverseActionServiceTest {
 
     @Test
     @DisplayName("Map Adverse Action to DTO - Should Return DTO with Correct Fields")
-    public void testMapAdverseActionToDto_ReturnsCorrectDto() {
+    void testMapAdverseActionToDto_ReturnsCorrectDto() {
         Long userId = 1L;
         Long candidateId = 2L;
         String status = "Completed";

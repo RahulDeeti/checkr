@@ -16,7 +16,7 @@ import java.lang.reflect.Method;
 import java.security.Key;
 import java.util.Date;
 
-public class JwtServiceTest {
+class JwtServiceTest {
 
     @Mock
     private UserDetails userDetails;
@@ -30,7 +30,7 @@ public class JwtServiceTest {
     }
 
     @Test
-    public void testGenerateToken() {
+    void testGenerateToken() {
         String userName = "testuser";
         String token = jwtService.generateToken(userName);
         assertNotNull(token);
@@ -38,7 +38,7 @@ public class JwtServiceTest {
     }
 
     @Test
-    public void testExtractUsername() {
+    void testExtractUsername() {
         String userName = "testuser";
         String token = jwtService.generateToken(userName);
         String extractedUserName = jwtService.extractUsername(token);
@@ -46,7 +46,7 @@ public class JwtServiceTest {
     }
 
     @Test
-    public void testExtractExpiration() {
+    void testExtractExpiration() {
         String userName = "testuser";
         String token = jwtService.generateToken(userName);
         Date expiration = jwtService.extractExpiration(token);
@@ -54,7 +54,7 @@ public class JwtServiceTest {
     }
 
     @Test
-    public void testValidateTokenWithValidToken() {
+    void testValidateTokenWithValidToken() {
         String userName = "testuser";
         String token = jwtService.generateToken(userName);
 
@@ -63,7 +63,7 @@ public class JwtServiceTest {
     }
 
     @Test
-    public void testValidateTokenWithInvalidToken() {
+    void testValidateTokenWithInvalidToken() {
         String userName = "testuser";
         String token = jwtService.generateToken(userName);
 
@@ -75,7 +75,7 @@ public class JwtServiceTest {
     }
 
     @Test
-    public void testValidateTokenWithExpiredToken() {
+    void testValidateTokenWithExpiredToken() {
         String userName = "testuser";
         String token = generateExpiredToken(userName);
 
