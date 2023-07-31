@@ -2,11 +2,13 @@ package com.org.checkr.dto.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter
 public class CreateUserRequestDTO {
-    private final String userName;
-    private final String email;
-    private final String password;
+    private String userName;
+    private String email;
+    private String password;
 }

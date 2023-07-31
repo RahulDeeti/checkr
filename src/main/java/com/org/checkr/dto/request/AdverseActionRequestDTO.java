@@ -3,6 +3,7 @@ package com.org.checkr.dto.request;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -10,13 +11,14 @@ import java.util.Date;
 
 @Getter
 @AllArgsConstructor
+@NoArgsConstructor
 @Data
 public class AdverseActionRequestDTO {
-    private final Long userId;
-    private final Long candidateId;
-    private final String status;
-    private final Date preAdverseActionNoticeDate;
-    private final Date postAdverseActionNoticeDate;
-    private final ArrayList<Long> questionnaireIds;
+    private Long userId;
+    private Long candidateId;
+    private String status;
+    private Date preAdverseActionNoticeDate;
+    private Date postAdverseActionNoticeDate;
+    private ArrayList<Long> questionnaireIds;
 }
 
