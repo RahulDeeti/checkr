@@ -2,10 +2,12 @@ package com.org.checkr.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Getter
 @AllArgsConstructor
+@NoArgsConstructor
 public class QuestionnaireResponseDTO {
-    private final Long id;
-    private final String question;
+    private Long id;
+    private String question;
 }

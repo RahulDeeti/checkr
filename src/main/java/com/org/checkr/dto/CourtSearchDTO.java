@@ -2,10 +2,12 @@ package com.org.checkr.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter
 public class CourtSearchDTO {
-    private final Long id;
-    private final String courtSearch;
+    private Long id;
+    private String courtSearch;
 }

@@ -2,11 +2,13 @@ package com.org.checkr.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter
 public class CreateUserResponseDTO {
-    private final Long id;
-    private final String userName;
-    private final String email;
+    private Long id;
+    private String userName;
+    private String email;
 }

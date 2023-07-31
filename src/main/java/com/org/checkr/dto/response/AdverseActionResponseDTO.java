@@ -2,15 +2,17 @@ package com.org.checkr.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
 @Getter
 @AllArgsConstructor
+@NoArgsConstructor
 public class AdverseActionResponseDTO {
-    private final Long userId;
-    private final Long candidateId;
-    private final String status;
-    private final Date preAdverseActionNoticeDate;
-    private final Date postAdverseActionNoticeDate;
+    private Long userId;
+    private Long candidateId;
+    private String status;
+    private Date preAdverseActionNoticeDate;
+    private Date postAdverseActionNoticeDate;
 }
