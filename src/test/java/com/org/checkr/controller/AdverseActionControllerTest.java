@@ -114,7 +114,7 @@ class AdverseActionControllerTest {
         mockMvc.perform(get("/api/adverse-actions"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$[0].candidateId").value(responseDTOList.get(0).getCandidateId())) // Adjust this based on your actual DTO fields
+                .andExpect(jsonPath("$[0].candidateId").value(responseDTOList.get(0).getCandidateId()))
                 .andExpect(jsonPath("$[0].userId").value(responseDTOList.get(0).getUserId()));
 
         verify(adverseActionService, times(1)).getAllAdverseActions();
