@@ -1,5 +1,6 @@
 package com.org.checkr.dto;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -7,6 +8,7 @@ import java.util.Date;
 
 @Getter
 @Setter
+@Data
 public class CandidateDTO {
 
     private String name;
