@@ -4,6 +4,7 @@ import com.org.checkr.dto.CourtSearchDTO;
 import com.org.checkr.dto.ReportDTO;
 import com.org.checkr.entity.Report;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -13,6 +14,7 @@ import java.util.List;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
 public class CompleteCandidateInfoDTO {
     private Long id;
     private String name;
