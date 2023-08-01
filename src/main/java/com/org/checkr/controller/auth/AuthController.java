@@ -33,7 +33,7 @@ public class AuthController {
                         authRequest.getUserName(),
                         authRequest.getPassword()
                 ));
-        System.out.println("is authenticated =========> "+authentication.isAuthenticated());
+
         if(authentication.isAuthenticated())
             return jwtService.generateToken(authRequest.getUserName());
         else
