@@ -27,7 +27,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @ExtendWith(MockitoExtension.class)
-public class CandidatesControllerTest {
+class CandidatesControllerTest {
 
     @Mock
     private CandidateService candidateService;
@@ -43,7 +43,7 @@ public class CandidatesControllerTest {
     }
 
     @Test
-    public void testGetCandidateById() throws Exception {
+    void testGetCandidateById() throws Exception {
         Long candidateId = 1L;
         String name = "john";
         String email = "john@email.com";
@@ -83,7 +83,7 @@ public class CandidatesControllerTest {
     }
 
     @Test
-    public void testGetAllCandidates() throws Exception {
+    void testGetAllCandidates() throws Exception {
         List<CandidateDTO> candidateDTOs = new ArrayList<>();
 
         CandidateDTO candidateDTO1 = new CandidateDTO("john ross", "adverse action", "clear",
@@ -108,7 +108,7 @@ public class CandidatesControllerTest {
     }
 
     @Test
-    public void testCreateCandidate() throws Exception {
+    void testCreateCandidate() throws Exception {
         Long candidateId = 1L;
         String name = "john";
         String email = "john@email.com";
@@ -146,7 +146,7 @@ public class CandidatesControllerTest {
     }
 
     @Test
-    public void testEngageWithCandidate() throws Exception {
+    void testEngageWithCandidate() throws Exception {
         long candidateId = 1L;
         Candidate candidate = new Candidate();
         candidate.setId(candidateId);

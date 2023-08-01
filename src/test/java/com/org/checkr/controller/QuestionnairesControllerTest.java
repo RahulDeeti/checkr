@@ -21,7 +21,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @ExtendWith(MockitoExtension.class)
-public class QuestionnairesControllerTest {
+class QuestionnairesControllerTest {
 
     @Mock
     private QuestionnaireService questionnaireService;
@@ -37,7 +37,7 @@ public class QuestionnairesControllerTest {
     }
 
     @Test
-    public void testGetAllQuestionnaires() throws Exception {
+    void testGetAllQuestionnaires() throws Exception {
         List<Questionnaire> questionnaires = new ArrayList<>();
 
         Questionnaire questionnaire1 = new Questionnaire();
