@@ -43,6 +43,9 @@ public class CandidatesController {
     @PatchMapping("/{id}")
     public ResponseEntity<CompleteCandidateInfoDTO> engageWithCandidate(@PathVariable Long id) {
         Candidate candidate = candidateService.engageWithCandidate(id);
+        if (candidate == null) {
+            return new ResponseEntity<>(null, HttpStatus.OK);
+        }
         CompleteCandidateInfoDTO responseDto = candidateService.mapCandidateEntityToDto(candidate);
         return new ResponseEntity<>(responseDto, HttpStatus.OK);
     }
