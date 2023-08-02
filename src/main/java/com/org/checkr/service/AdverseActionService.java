@@ -41,7 +41,7 @@ public class AdverseActionService {
                 adverseAction.getStatus(),
                 adverseAction.getPreAdverseActionNoticeDate(),
                 adverseAction.getPostAdverseActionNoticeDate()
-        );}).collect(Collectors.toList());
+        );}).toList();
     }
 
     public AdverseAction saveAdverseAction(AdverseActionRequestDTO adverseActionDTO) {
@@ -51,8 +51,6 @@ public class AdverseActionService {
     private AdverseAction createAdverseActionFromDTO(AdverseActionRequestDTO adverseActionDTO) {
         Candidate candidate = candidateService.getCandidateById(adverseActionDTO.getCandidateId());
         User user = userService.getUserById(adverseActionDTO.getUserId());
-
-        List<Long> questionnaireIds =  adverseActionDTO.getQuestionnaireIds();
 
         List<Questionnaire> questionnaires = new ArrayList<>();
 

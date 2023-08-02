@@ -62,10 +62,6 @@ public class SecurityConfig {
                 .authenticationProvider(authenticationProvider())
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
-
-
-//                .httpBasic()
-//                .and().build();
     }
 
     // we need create AuthenticationManager bean explicitly in spring boot 3

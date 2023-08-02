@@ -118,7 +118,7 @@ public class CandidateService {
                         candidate.getLocation(),
                         Optional.ofNullable(candidate.getReport()).map(Report::getCreatedAt).orElse(null)
                 ))
-                .collect(Collectors.toList());
+                .toList();
     }
 
     private Candidate mapDtoToCandidateEntity(CreateCandidateRequestDTO requestDTO) {
@@ -154,7 +154,7 @@ public class CandidateService {
         if(candidate.getCourtSearches() != null) {
             courtSearchDTOs = candidate.getCourtSearches().stream().map(
                     courtSearch -> new CourtSearchDTO(courtSearch.getId(), courtSearch.getSearch())
-            ).collect(Collectors.toList());
+            ).toList();
         }
         return new CompleteCandidateInfoDTO(
                 candidate.getId(),

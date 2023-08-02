@@ -2,7 +2,7 @@ package com.org.checkr.dto.response;
 
 import com.org.checkr.dto.CourtSearchDTO;
 import com.org.checkr.dto.ReportDTO;
-import com.org.checkr.entity.Report;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;

@@ -1,10 +1,7 @@
 package com.org.checkr.controller;
 
-import com.org.checkr.dto.response.CompleteCandidateInfoDTO;
 import com.org.checkr.dto.response.QuestionnaireResponseDTO;
-import com.org.checkr.entity.Questionnaire;
 import com.org.checkr.service.QuestionnaireService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
