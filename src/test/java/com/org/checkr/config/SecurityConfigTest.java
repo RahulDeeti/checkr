@@ -18,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 @ExtendWith(MockitoExtension.class)
-public class SecurityConfigTest {
+class SecurityConfigTest {
 
     @Mock
     private JwtAuthFilter jwtAuthFilter;

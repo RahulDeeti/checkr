@@ -37,12 +37,12 @@ public class UsersControllerTest {
     private MockMvc mockMvc;
 
     @BeforeEach
-    public void setup() {
+    void setup() {
         mockMvc = MockMvcBuilders.standaloneSetup(usersController).build();
     }
 
     @Test
-    public void testCreateUser() throws Exception {
+    void testCreateUser() throws Exception {
         CreateUserRequestDTO requestDTO = new CreateUserRequestDTO("john doe", "john@email.com", "ab21");
 
         CreateUserResponseDTO responseDTO = new CreateUserResponseDTO(1L, "john doe", "john@email.com");
