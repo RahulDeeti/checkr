@@ -44,7 +44,7 @@ public class CandidatesController {
     public ResponseEntity<CompleteCandidateInfoDTO> engageWithCandidate(@PathVariable Long id) {
         Candidate candidate = candidateService.engageWithCandidate(id);
         if (candidate == null) {
-            return new ResponseEntity<>(null, HttpStatus.OK);
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
         }
         CompleteCandidateInfoDTO responseDto = candidateService.mapCandidateEntityToDto(candidate);
         return new ResponseEntity<>(responseDto, HttpStatus.OK);
