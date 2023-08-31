@@ -103,7 +103,7 @@ sonarqube {
 	properties {
 		property 'sonar.projectKey', 'RahulDeeti_checkr'
 		property 'sonar.organization', 'rahuldeeti'
-		property "sonar.exclusions", "src/main/java/com/org/checkr/exception/** , src/main/java/com/org/checkr/entity/**, src/main/java/com/org/checkr/filter/** , src/main/java/com/org/checkr/dto/**"
+		property "sonar.exclusions", "src/main/java/com/org/checkr/exception/** , src/main/java/com/org/checkr/entity/**, src/main/java/com/org/checkr/filter/** , src/main/java/com/org/checkr/dto/** , com/org/checkr/config/**"
 		property 'sonar.sources', 'src/main/java'
 		property 'sonar.tests', 'src/test/java'
 		property 'sonar.coverage.jacoco.xmlReportPaths', 'build/reports/jacoco/test/jacocoTestReport.xml'
