@@ -82,7 +82,8 @@ jacocoTestReport {
 					"com/org/checkr/dto/**",
 					"com/org/checkr/entity/**",
 					"com/org/checkr/filter/**",
-					"com/org/checkr/exception/**"
+					"com/org/checkr/exception/**",
+					"com/org/checkr/config/**"
 			])
 		}))
 	}
