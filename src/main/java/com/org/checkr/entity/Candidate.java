@@ -1,14 +1,11 @@
 package com.org.checkr.entity;
 
 import jakarta.persistence.*;
-
 import lombok.Getter;
 import lombok.Setter;
-
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.util.Date;
-import java.util.List;
 
 @Entity
 @Getter
@@ -26,17 +23,14 @@ public class Candidate {
     @Column(nullable = false)
     private String email;
 
-    @Column(nullable = false)
     @Temporal(TemporalType.DATE)
     private Date dob;
 
-    @Column(nullable = false)
     private String phone;
 
-    @Column(nullable = false)
     private String zipcode;
 
-    @Column(name = "social_security_card", nullable = false)
+    @Column(name = "social_security_card")
     private String socialSecurityCard;
 
     @Column(name = "driving_license")
@@ -53,20 +47,5 @@ public class Candidate {
     @OneToOne(mappedBy = "candidate", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Report report;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(
-            name = "candidate_questionnaire",
-            joinColumns = @JoinColumn(name = "candidate_id"),
-            inverseJoinColumns = @JoinColumn(name = "questionnaire_id")
-    )
-    private List<Questionnaire> questionnaires;
-
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(
-            name = "candidate_court_search",
-            joinColumns = @JoinColumn(name = "candidate_id"),
-            inverseJoinColumns = @JoinColumn(name = "court_search_id")
-    )
-    private List<CourtSearch> courtSearches;
 }
 

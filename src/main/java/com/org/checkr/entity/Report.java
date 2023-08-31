@@ -42,4 +42,11 @@ public class Report {
     @JoinColumn(name = "candidate_id", nullable = false)
     @JsonIgnore
     private Candidate candidate;
+
+//    public Report(String status, String adjudication, Integer totalPackage, Date completedAt) {
+//        this.status = status;
+//        this.adjudication = adjudication;
+//        this.totalPackage = totalPackage;
+//        this.completedAt = completedAt;
+//    }
 }

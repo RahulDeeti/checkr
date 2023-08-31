@@ -5,3 +5,6 @@ spring:
     password: orange
   jpa:
     show-sql: true
+
+
+property: stagingValue

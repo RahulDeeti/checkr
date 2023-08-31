@@ -31,28 +31,16 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.springframework.boot:spring-boot-starter-security' // for implementing spring security
-	implementation 'org.springframework.boot:spring-boot-starter-validation:3.0.1' // for entity validations
-
-	// these dependencies are for jwt authentication
-	implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
-	runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.5'
-	runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.11.5'
-
 	compileOnly 'org.projectlombok:lombok'
-	compileOnly 'org.flywaydb:flyway-core'
-
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
-
 	runtimeOnly 'org.postgresql:postgresql'
-	runtimeOnly 'com.h2database:h2'
-
 	annotationProcessor 'org.projectlombok:lombok'
-
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.9.1'
 	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.1'
-	testImplementation 'org.springframework.security:spring-security-test'
+	runtimeOnly 'com.h2database:h2'
+	compileOnly 'org.flywaydb:flyway-core'
+
 }
 
 jacoco {
