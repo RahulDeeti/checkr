@@ -1,8 +1,11 @@
 package com.org.checkr.controller;
 
+import com.org.checkr.dto.request.CreateUserRequestDTO;
+import com.org.checkr.dto.response.CreateUserResponseDTO;
 import com.org.checkr.entity.User;
 import com.org.checkr.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,16 +14,16 @@ import java.util.List;
 @RequestMapping("/api/users")
 public class UsersController {
 
-    @Autowired
-    private UserService userService;
+    private final UserService userService;
 
-    @GetMapping
-    public List<User> listAllUsers() {
-        return userService.getAllUsers();
+    public UsersController(UserService userService) {
+        this.userService = userService;
     }
 
     @PostMapping
-    public User createUser(@RequestBody User user) {
-        return userService.saveUser(user);
+    public ResponseEntity<CreateUserResponseDTO> createUser(@RequestBody CreateUserRequestDTO createUserRequestDTO) {
+        User user = userService.saveUser(createUserRequestDTO);
+        CreateUserResponseDTO responseDTO = userService.mapUserToResponseDTO(user);
+        return new ResponseEntity<>(responseDTO, HttpStatus.CREATED);
     }
 }
